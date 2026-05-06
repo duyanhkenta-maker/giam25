@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tạo Link Shopee 25%</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(180deg,#ff8a65,#ff5722);
+}
+.box{
+  max-width:420px;
+  margin:40px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+}
+h2{text-align:center;color:#ff5722;}
+input{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  margin-bottom:10px;
+}
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  background:#ff5722;
+  color:#fff;
+  font-weight:bold;
+  border-radius:8px;
+}
+.voucher{
+  margin-top:15px;
+  padding:10px;
+  border:1px dashed #ff5722;
+  text-align:center;
+}
+.progress{
+  height:6px;
+  background:#eee;
+  margin-top:6px;
+}
+.progress div{
+  height:100%;
+  width:95%;
+  background:red;
+}
+.note{
+  font-size:13px;
+  margin-top:10px;
+}
+</style>
+</head>
+<body>
+<div class="box">
+  <h2>🔗 Tạo Link Shopee</h2>
+  <input id="link" placeholder="Dán link Shopee..." />
+  <button onclick="gen()">Tạo Link Ngay</button>
+    <div class="voucher">
+    🎟 Giảm 25% (Facebook)
+    <div class="progress"><div></div></div>
+    <small id="time"></small>
+  </div>
+  <div class="note">
+    👉 Mở bằng Facebook để có cơ hội nhận mã
+  </div>
+</div>
+<script>
+
+// ✅ ĐÃ GẮN ID CHO BẠN
+const AFF_ID = "17362260173";
+
+function gen(){
+  let url = document.getElementById("link").value.trim();
+
+  if(!url.includes("shopee")){
+    alert("Link sai!");
+    return;
+  }
+
+  let aff = `af_siteid=${AFF_ID}&af_sub_siteid=facebook`;
+
+  if(url.includes("?")){
+    url += "&" + aff;
+  }else{
+    url += "?" + aff;
+  }
+
+  navigator.clipboard.writeText(url);
+
+  alert("Đã copy link!");
+}
+
+// countdown giả
+let t=300;
+setInterval(()=>{
+  t--;
+  document.getElementById("time").innerText="Hết mã sau: "+t+"s";
+},1000);
+
+</script>
+</body>
+</html>
