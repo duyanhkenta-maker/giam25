@@ -78,10 +78,14 @@ const AFF_ID = "17362260173";
 function gen(){
   let url = document.getElementById("link").value.trim();
 
-  if(!url.includes("shopee")){
-    alert("Link sai!");
-    return;
-  }
+if(
+  !url.includes("shopee.vn") &&
+  !url.includes("shopee.com") &&
+  !url.includes("shp.ee")
+){
+  alert("Link Shopee không hợp lệ!");
+  return;
+}
 
   let aff = `af_siteid=${AFF_ID}&af_sub_siteid=facebook`;
 
