@@ -78,13 +78,35 @@ const AFF_ID = "17362260173";
 function gen(){
   let url = document.getElementById("link").value.trim();
 
-if(
-  !url.includes("shopee.vn") &&
-  !url.includes("shopee.com") &&
-  !url.includes("shp.ee")
-){
-  alert("Link Shopee không hợp lệ!");
-  return;
+function gen(){
+  let url = document.getElementById("link").value.trim();
+
+  if(
+    !url.includes("shopee.vn") &&
+    !url.includes("shopee.com") &&
+    !url.includes("shp.ee")
+  ){
+    alert("Link Shopee không hợp lệ!");
+    return;
+  }
+
+  if(url.includes("shp.ee")){
+    window.open(url, "_blank");
+    alert("Link rút gọn! Mở link rồi copy lại nhé!");
+    return;
+  }
+
+  let aff = `af_siteid=17362260173&af_sub_siteid=facebook`;
+
+  if(url.includes("?")){
+    url += "&" + aff;
+  }else{
+    url += "?" + aff;
+  }
+
+  navigator.clipboard.writeText(url);
+
+  alert("Đã copy link aff!");
 }
 
   let aff = `af_siteid=${AFF_ID}&af_sub_siteid=facebook`;
