@@ -1,154 +1,275 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tạo Link Shopee</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
+
 <style>
-body{
+
+*{
     margin:0;
-    padding:20px;
-    background:#ffd9cf;
-    font-family:Arial;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.wrap{
-    max-width:500px;
+body{
+    background:#ffd9cf;
+    font-family:'Be Vietnam Pro',sans-serif;
+    padding:20px 14px 60px;
+    color:#222;
+}
+
+.container{
+    max-width:520px;
     margin:auto;
 }
 
 .logo{
     text-align:center;
-    font-size:38px;
-    font-weight:bold;
-    color:#ff5b2e;
-    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.logo h1{
+    color:#ff5a2c;
+    font-size:42px;
+    font-weight:800;
+    text-shadow:0 3px 8px rgba(255,90,44,.25);
 }
 
 .domain{
-    text-align:center;
-    background:#ffe9e3;
-    padding:10px;
-    border-radius:30px;
-    margin-bottom:20px;
-    color:#cc5a3d;
+    display:inline-block;
+    margin-top:14px;
+    background:#ffe8e1;
+    color:#d7674b;
+    padding:12px 28px;
+    border-radius:40px;
+    font-size:20px;
 }
 
 .card{
+    margin-top:25px;
     background:#fff;
-    border-radius:20px;
-    padding:20px;
+    border-radius:28px;
+    padding:22px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
 }
 
 .title{
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:15px;
+    font-size:34px;
+    font-weight:800;
+    margin-bottom:18px;
 }
 
-.input{
+.input-wrap{
     display:flex;
-    gap:10px;
+    overflow:hidden;
+    border:4px solid #efefef;
+    border-radius:22px;
+    height:86px;
 }
 
-input{
+.input-wrap input{
     flex:1;
-    padding:15px;
-    border-radius:15px;
-    border:2px solid #eee;
-    font-size:16px;
+    border:none;
+    padding:0 24px;
+    font-size:29px;
+    outline:none;
 }
 
-.main-btn{
+.copy-mini{
+    width:92px;
+    border-left:3px solid #efefef;
+    background:#fff;
+    cursor:pointer;
+    font-size:32px;
+}
+
+.create-btn{
     width:100%;
-    margin-top:15px;
-    padding:16px;
+    height:88px;
+    margin-top:22px;
     border:none;
-    border-radius:15px;
-    background:#ff5b2e;
+    border-radius:24px;
+    background:linear-gradient(90deg,#ff4b2b,#ff6a37);
     color:#fff;
-    font-size:20px;
-    font-weight:bold;
+    font-size:34px;
+    font-weight:800;
     cursor:pointer;
+    box-shadow:0 8px 20px rgba(255,91,46,.3);
 }
 
-.box{
-    border:3px solid #ff6d4a;
-    border-radius:20px;
-    padding:15px;
-    margin-top:20px;
+.result-box{
+    margin-top:24px;
+    border:4px solid #ff6c47;
+    border-radius:24px;
+    padding:18px;
 }
 
-.box-title{
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:10px;
+.result-title{
+    font-size:28px;
+    font-weight:800;
+    line-height:1.4;
+    margin-bottom:14px;
 }
 
-.link{
+.result-link{
+    font-size:22px;
+    color:#555;
     word-break:break-all;
-    color:#444;
-    margin-bottom:15px;
+    line-height:1.6;
 }
 
-.copy{
-    background:#ff5b2e;
-    color:#fff;
+.copy-btn{
+    margin-top:18px;
+    width:100%;
+    height:74px;
     border:none;
-    padding:12px 18px;
-    border-radius:12px;
+    border-radius:18px;
+    background:#ff5a2c;
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
     cursor:pointer;
-    font-size:16px;
 }
 
-.buy{
-    display:block;
-    text-align:center;
-    background:#27c866;
+.buy-btn{
+    width:100%;
+    height:84px;
+    border-radius:22px;
+    background:#2cc96b;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     color:#fff;
     text-decoration:none;
-    padding:18px;
-    border-radius:15px;
-    margin-top:20px;
-    font-size:22px;
-    font-weight:bold;
+    font-size:32px;
+    font-weight:800;
+    margin-top:22px;
 }
 
-.share{
-    display:block;
-    text-align:center;
+.share-btn{
+    width:100%;
+    height:84px;
+    border-radius:22px;
     background:#3b5998;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     color:#fff;
     text-decoration:none;
-    padding:18px;
-    border-radius:15px;
-    margin-top:15px;
-    font-size:22px;
-    font-weight:bold;
+    font-size:32px;
+    font-weight:800;
+    margin-top:16px;
 }
+
+.guide{
+    margin-top:28px;
+    background:#fff;
+    border-radius:24px;
+    padding:24px;
+}
+
+.guide h2{
+    font-size:34px;
+    margin-bottom:14px;
+}
+
+.guide li{
+    font-size:28px;
+    line-height:1.7;
+    margin-left:28px;
+}
+
+@media(max-width:600px){
+
+    .logo h1{
+        font-size:24px;
+    }
+
+    .domain{
+        font-size:14px;
+    }
+
+    .title{
+        font-size:22px;
+    }
+
+    .input-wrap{
+        height:60px;
+    }
+
+    .input-wrap input{
+        font-size:18px;
+    }
+
+    .create-btn{
+        height:64px;
+        font-size:24px;
+    }
+
+    .result-title{
+        font-size:20px;
+    }
+
+    .result-link{
+        font-size:14px;
+    }
+
+    .copy-btn,
+    .buy-btn,
+    .share-btn{
+        height:58px;
+        font-size:20px;
+    }
+
+    .guide h2{
+        font-size:24px;
+    }
+
+    .guide li{
+        font-size:17px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
+<div class="container">
 
-    <div class="logo">🔗 Tạo Link Shopee</div>
+    <div class="logo">
+        <h1>🔗 Tạo Link Shopee</h1>
 
-    <div class="domain">
-        tqsansale.shopee.cc
+        <div class="domain">
+            tqsansale.shopee.cc
+        </div>
     </div>
 
     <div class="card">
 
-        <div class="title">👜 Link sản phẩm Shopee</div>
-
-        <div class="input">
-            <input id="link" placeholder="Dán link Shopee vào đây..." />
+        <div class="title">
+            👜 Link sản phẩm Shopee
         </div>
 
-        <button class="main-btn" onclick="taoLink()">
+        <div class="input-wrap">
+
+            <input
+                id="link"
+                placeholder="Dán link Shopee vào đây..."
+            >
+
+            <button class="copy-mini">
+                📋
+            </button>
+
+        </div>
+
+        <button class="create-btn" onclick="createLink()">
             ✏️ Tạo Link Ngay
         </button>
 
@@ -156,63 +277,82 @@ input{
 
     </div>
 
+    <div class="guide">
+
+        <h2>ℹ️ Hướng dẫn</h2>
+
+        <ol>
+            <li>Sau khi tạo link, nhấn <b>Copy Link</b>.</li>
+            <li>Dán link dưới bình luận bài đăng này.</li>
+            <li>Click vào link để mở Shopee sẽ nhận được mã.</li>
+        </ol>
+
+    </div>
+
 </div>
 
 <script>
 
-const AFFILIATE_ID = "17362260173";
+const AFF_ID = "17362260173";
 
-function taoLink(){
+function createLink(){
 
-    let input = document.getElementById("link").value.trim();
+    const input =
+    document.getElementById("link").value.trim();
 
     if(input === ""){
-        alert("Nhập link Shopee");
+        alert("Vui lòng nhập link Shopee");
         return;
     }
 
-    let finalLink =
-`https://s.shopee.vn/an_redir?affiliate_id=${AFFILIATE_ID}&sub_id=facebook&origin_link=${encodeURIComponent(input)}`;
+    const finalLink =
+`https://s.shopee.vn/an_redir?affiliate_id=${AFF_ID}&sub_id=facebook&origin_link=${encodeURIComponent(input)}`;
 
     document.getElementById("result").innerHTML = `
 
-    <div class="box">
+        <div class="result-box">
 
-        <div class="box-title">
-            ✅ Link Affiliate Shopee
+            <div class="result-title">
+                ✅ Mã 25% 1 triệu
+            </div>
+
+            <div class="result-link" id="textResult">
+                ${finalLink}
+            </div>
+
+            <button class="copy-btn" onclick="copyLink()">
+                📋 Copy
+            </button>
+
         </div>
 
-        <div class="link" id="textLink">
-            ${finalLink}
-        </div>
+        <a
+            class="buy-btn"
+            href="${finalLink}"
+            target="_blank"
+        >
+            🛒 Mua Ngay
+        </a>
 
-        <button class="copy" onclick="copyLink()">
-            📋 Copy
-        </button>
-
-    </div>
-
-    <a class="buy" href="${finalLink}" target="_blank">
-        🛒 Mua Ngay
-    </a>
-
-    <a class="share"
-       href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(finalLink)}"
-       target="_blank">
-       📘 Chia sẻ Facebook
-    </a>
+        <a
+            class="share-btn"
+            target="_blank"
+            href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(finalLink)}"
+        >
+            📘 Chia sẻ
+        </a>
 
     `;
 }
 
 function copyLink(){
 
-    let text =
-    document.getElementById("textLink").innerText;
+    const text =
+    document.getElementById("textResult").innerText;
 
     navigator.clipboard.writeText(text);
 
-    alert("Đã copy link!");
+    alert("Đã copy link");
 }
 
 </script>
