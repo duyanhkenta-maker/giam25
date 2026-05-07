@@ -1,134 +1,221 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tạo Link Shopee 25%</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tạo Link Shopee</title>
+
 <style>
 body{
-  margin:0;
-  font-family:Arial;
-  background:linear-gradient(180deg,#ff8a65,#ff5722);
+    margin:0;
+    padding:20px;
+    background:#ffd9cf;
+    font-family:Arial;
 }
-.box{
-  max-width:420px;
-  margin:40px auto;
-  background:#fff;
-  padding:20px;
-  border-radius:12px;
+
+.wrap{
+    max-width:500px;
+    margin:auto;
 }
-h2{text-align:center;color:#ff5722;}
+
+.logo{
+    text-align:center;
+    font-size:38px;
+    font-weight:bold;
+    color:#ff5b2e;
+    margin-bottom:10px;
+}
+
+.domain{
+    text-align:center;
+    background:#ffe9e3;
+    padding:10px;
+    border-radius:30px;
+    margin-bottom:20px;
+    color:#cc5a3d;
+}
+
+.card{
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+}
+
+.title{
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.input{
+    display:flex;
+    gap:10px;
+}
+
 input{
-  width:100%;
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #ddd;
-  margin-bottom:10px;
+    flex:1;
+    padding:15px;
+    border-radius:15px;
+    border:2px solid #eee;
+    font-size:16px;
 }
-button{
-  width:100%;
-  padding:14px;
-  border:none;
-  background:#ff5722;
-  color:#fff;
-  font-weight:bold;
-  border-radius:8px;
+
+.main-btn{
+    width:100%;
+    margin-top:15px;
+    padding:16px;
+    border:none;
+    border-radius:15px;
+    background:#ff5b2e;
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
 }
-.voucher{
-  margin-top:15px;
-  padding:10px;
-  border:1px dashed #ff5722;
-  text-align:center;
+
+.box{
+    border:3px solid #ff6d4a;
+    border-radius:20px;
+    padding:15px;
+    margin-top:20px;
 }
-.progress{
-  height:6px;
-  background:#eee;
-  margin-top:6px;
+
+.box-title{
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
-.progress div{
-  height:100%;
-  width:95%;
-  background:red;
+
+.link{
+    word-break:break-all;
+    color:#444;
+    margin-bottom:15px;
 }
-.note{
-  font-size:13px;
-  margin-top:10px;
+
+.copy{
+    background:#ff5b2e;
+    color:#fff;
+    border:none;
+    padding:12px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.buy{
+    display:block;
+    text-align:center;
+    background:#27c866;
+    color:#fff;
+    text-decoration:none;
+    padding:18px;
+    border-radius:15px;
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.share{
+    display:block;
+    text-align:center;
+    background:#3b5998;
+    color:#fff;
+    text-decoration:none;
+    padding:18px;
+    border-radius:15px;
+    margin-top:15px;
+    font-size:22px;
+    font-weight:bold;
 }
 </style>
 </head>
+
 <body>
-<div class="box">
-  <h2>🔗 Tạo Link Shopee</h2>
-  <input id="link" placeholder="Dán link Shopee..." />
-  <button onclick="gen()">Tạo Link Ngay</button>
-    <div class="voucher">
-    🎟 Giảm 25% (Facebook)
-    <div class="progress"><div></div></div>
-    <small id="time"></small>
-  </div>
-  <div class="note">
-    👉 Mở bằng Facebook để có cơ hội nhận mã
-  </div>
+
+<div class="wrap">
+
+    <div class="logo">🔗 Tạo Link Shopee</div>
+
+    <div class="domain">
+        tqsansale.shopee.cc
+    </div>
+
+    <div class="card">
+
+        <div class="title">👜 Link sản phẩm Shopee</div>
+
+        <div class="input">
+            <input id="link" placeholder="Dán link Shopee vào đây..." />
+        </div>
+
+        <button class="main-btn" onclick="taoLink()">
+            ✏️ Tạo Link Ngay
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
 </div>
+
 <script>
 
-// ✅ ĐÃ GẮN ID CHO BẠN
-const AFF_ID = "17362260173";
+const AFFILIATE_ID = "17362260173";
 
-function gen(){
-  let url = document.getElementById("link").value.trim();
+function taoLink(){
 
-function gen(){
-  let url = document.getElementById("link").value.trim();
+    let input = document.getElementById("link").value.trim();
 
-  if(
-    !url.includes("shopee.vn") &&
-    !url.includes("shopee.com") &&
-    !url.includes("shp.ee")
-  ){
-    alert("Link Shopee không hợp lệ!");
-    return;
-  }
+    if(input === ""){
+        alert("Nhập link Shopee");
+        return;
+    }
 
-  if(url.includes("shp.ee")){
-    window.open(url, "_blank");
-    alert("Link rút gọn! Mở link rồi copy lại nhé!");
-    return;
-  }
+    let finalLink =
+`https://s.shopee.vn/an_redir?affiliate_id=${AFFILIATE_ID}&sub_id=facebook&origin_link=${encodeURIComponent(input)}`;
 
-  let aff = `af_siteid=17362260173&af_sub_siteid=facebook`;
+    document.getElementById("result").innerHTML = `
 
-  if(url.includes("?")){
-    url += "&" + aff;
-  }else{
-    url += "?" + aff;
-  }
+    <div class="box">
 
-  navigator.clipboard.writeText(url);
+        <div class="box-title">
+            ✅ Link Affiliate Shopee
+        </div>
 
-  alert("Đã copy link aff!");
+        <div class="link" id="textLink">
+            ${finalLink}
+        </div>
+
+        <button class="copy" onclick="copyLink()">
+            📋 Copy
+        </button>
+
+    </div>
+
+    <a class="buy" href="${finalLink}" target="_blank">
+        🛒 Mua Ngay
+    </a>
+
+    <a class="share"
+       href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(finalLink)}"
+       target="_blank">
+       📘 Chia sẻ Facebook
+    </a>
+
+    `;
 }
 
-  let aff = `af_siteid=${AFF_ID}&af_sub_siteid=facebook`;
+function copyLink(){
 
-  if(url.includes("?")){
-    url += "&" + aff;
-  }else{
-    url += "?" + aff;
-  }
+    let text =
+    document.getElementById("textLink").innerText;
 
-  navigator.clipboard.writeText(url);
+    navigator.clipboard.writeText(text);
 
-  alert("Đã copy link!");
+    alert("Đã copy link!");
 }
-
-// countdown giả
-let t=300;
-setInterval(()=>{
-  t--;
-  document.getElementById("time").innerText="Hết mã sau: "+t+"s";
-},1000);
 
 </script>
+
 </body>
 </html>
